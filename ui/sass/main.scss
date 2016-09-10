@@ -1,0 +1,16 @@
+@import "_bootstrap";
+@import "_bootswatch";
+@import "../src/spritesmith-generated/sprite.scss";
+
+body {
+  padding-top: 50px;
+}
+
+i{
+  display:inline-block;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}

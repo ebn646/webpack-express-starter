@@ -1,0 +1,173 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
+*/
+$red_name = 'red';
+$red_x = 68px;
+$red_y = 30px;
+$red_offset_x = -68px;
+$red_offset_y = -30px;
+$red_width = 17px;
+$red_height = 17px;
+$red_total_width = 104px;
+$red_total_height = 64px;
+$red_image = '~sprite.png';
+$red = 68px 30px -68px -30px 17px 17px 104px 64px '~sprite.png' 'red';
+$red_2x_name = 'red@2x';
+$red_2x_x = 0px;
+$red_2x_y = 0px;
+$red_2x_offset_x = 0px;
+$red_2x_offset_y = 0px;
+$red_2x_width = 34px;
+$red_2x_height = 34px;
+$red_2x_total_width = 104px;
+$red_2x_total_height = 64px;
+$red_2x_image = '~sprite.png';
+$red_2x = 0px 0px 0px 0px 34px 34px 104px 64px '~sprite.png' 'red@2x';
+$turquoise_name = 'turquoise';
+$turquoise_x = 85px;
+$turquoise_y = 30px;
+$turquoise_offset_x = -85px;
+$turquoise_offset_y = -30px;
+$turquoise_width = 17px;
+$turquoise_height = 17px;
+$turquoise_total_width = 104px;
+$turquoise_total_height = 64px;
+$turquoise_image = '~sprite.png';
+$turquoise = 85px 30px -85px -30px 17px 17px 104px 64px '~sprite.png' 'turquoise';
+$turquoise_2x_name = 'turquoise@2x';
+$turquoise_2x_x = 34px;
+$turquoise_2x_y = 0px;
+$turquoise_2x_offset_x = -34px;
+$turquoise_2x_offset_y = 0px;
+$turquoise_2x_width = 34px;
+$turquoise_2x_height = 34px;
+$turquoise_2x_total_width = 104px;
+$turquoise_2x_total_height = 64px;
+$turquoise_2x_image = '~sprite.png';
+$turquoise_2x = 34px 0px -34px 0px 34px 34px 104px 64px '~sprite.png' 'turquoise@2x';
+$hover_name = 'hover';
+$hover_x = 68px;
+$hover_y = 47px;
+$hover_offset_x = -68px;
+$hover_offset_y = -47px;
+$hover_width = 18px;
+$hover_height = 15px;
+$hover_total_width = 104px;
+$hover_total_height = 64px;
+$hover_image = '~sprite.png';
+$hover = 68px 47px -68px -47px 18px 15px 104px 64px '~sprite.png' 'hover';
+$hover_2x_name = 'hover@2x';
+$hover_2x_x = 0px;
+$hover_2x_y = 34px;
+$hover_2x_offset_x = 0px;
+$hover_2x_offset_y = -34px;
+$hover_2x_width = 36px;
+$hover_2x_height = 30px;
+$hover_2x_total_width = 104px;
+$hover_2x_total_height = 64px;
+$hover_2x_image = '~sprite.png';
+$hover_2x = 0px 34px 0px -34px 36px 30px 104px 64px '~sprite.png' 'hover@2x';
+$normal_name = 'normal';
+$normal_x = 86px;
+$normal_y = 47px;
+$normal_offset_x = -86px;
+$normal_offset_y = -47px;
+$normal_width = 18px;
+$normal_height = 15px;
+$normal_total_width = 104px;
+$normal_total_height = 64px;
+$normal_image = '~sprite.png';
+$normal = 86px 47px -86px -47px 18px 15px 104px 64px '~sprite.png' 'normal';
+$normal_2x_name = 'normal@2x';
+$normal_2x_x = 68px;
+$normal_2x_y = 0px;
+$normal_2x_offset_x = -68px;
+$normal_2x_offset_y = 0px;
+$normal_2x_width = 36px;
+$normal_2x_height = 30px;
+$normal_2x_total_width = 104px;
+$normal_2x_total_height = 64px;
+$normal_2x_image = '~sprite.png';
+$normal_2x = 68px 0px -68px 0px 36px 30px 104px 64px '~sprite.png' 'normal@2x';
+$spritesheet_width = 104px;
+$spritesheet_height = 64px;
+$spritesheet_image = '~sprite.png';
+$spritesheet_sprites = $red $red_2x $turquoise $turquoise_2x $hover $hover_2x $normal $normal_2x;
+$spritesheet = 104px 64px '~sprite.png' $spritesheet_sprites;
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}
