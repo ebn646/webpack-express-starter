@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "webpack": "webpack --progress --colors --watch",
     "start": "./bin/www",
-    "build": "webpack --progress --colors --watch"
+    "build": "rimraf public && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors"
   },
   "dependencies": {
     "body-parser": "~1.12.4",
@@ -23,12 +24,18 @@
     "autoprefixer-loader": "^2.0.0",
     "babel-loader": "^5.1.4",
     "css-loader": "^0.14.5",
+    "cross-env": "^1.0.7",
+    "style-loader": "^0.12.4",
     "extract-text-webpack-plugin": "^1.0.1",
+    "eslint": "^1.5.0",
+    "postcss-loader": "^0.6.0",
     "file-loader": "^0.8.4",
     "node-sass": "^3.2.0",
+    "rimraf": "^2.4.3",
     "sass-loader": "^1.0.2",
     "style-loader": "^0.12.3",
     "stylus-loader": "^1.4.2",
+    "stats-webpack-plugin": "^0.2.1",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.7.0",
     "webpack-dev-server": "^1.14.1",
