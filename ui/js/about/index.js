@@ -8,3 +8,7 @@ require([
   });
 
 console.log("About...");
+
+if (module.hot) {
+  module.hot.accept();
+}

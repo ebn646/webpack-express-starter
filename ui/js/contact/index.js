@@ -12,3 +12,7 @@ setTimeout(() => {
 }, 4000);
 
 console.log("Contact...");
+
+if (module.hot) {
+  module.hot.accept();
+}

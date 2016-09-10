@@ -3,7 +3,8 @@
 let path = require("path"),
     webpack = require("webpack"),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
-    SpritesmithPlugin = require('webpack-spritesmith');
+    SpritesmithPlugin = require('webpack-spritesmith'),
+    hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
 
 let plugins = [
   new webpack.optimize.CommonsChunkPlugin({
@@ -32,19 +33,21 @@ let plugins = [
     apiOptions: {
       cssImageRef: "~sprite.png"
     }
-  })
+  }),
+  new webpack.HotModuleReplacementPlugin(),
 ];
 
 module.exports = {
   context: path.join(__dirname, "ui"),
   entry: {
     common: ["jquery", "bootstrap"],
-    home: "./js/home/index.js",
-    about: "./js/about/index.js",
-    contact: "./js/contact/index.js"
+    home: ["./js/home/index.js",hotMiddlewareScript],
+    about: ["./js/about/index.js",hotMiddlewareScript],
+    contact: ["./js/contact/index.js",hotMiddlewareScript]
   },
   output: {
     path: path.join(__dirname, "public"),
+    publicPath: './public',
     filename: "[name].js",
     chunkFilename: "[name]_[chunkhash].js"
   },

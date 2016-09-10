@@ -10,3 +10,7 @@ require([
   });
 
 console.log("Home...");
+
+if (module.hot) {
+  module.hot.accept();
+}
